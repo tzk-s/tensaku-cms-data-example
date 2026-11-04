@@ -1,0 +1,28 @@
+[
+  {
+    "id": 201,
+    "slug": "broken-case",
+    "title": { "rendered": "企業名が空の事例" },
+    "date": "2026-09-01T10:00:00",
+    "modified": "2026-09-01T10:00:00",
+    "tensaku": {
+      "company": "  ",
+      "companySize": "",
+      "person": "担当者",
+      "voiceTitle": "見出し",
+      "voiceText": "本文",
+      "challenge": "課題",
+      "solution": "導入",
+      "result": "効果",
+      "showOnTop": false,
+      "industry": null,
+      "metrics": [],
+      "image": {
+        "url": "https://cms.example.com/wp-content/uploads/2026/09/case-201.jpg",
+        "width": 1200,
+        "height": 675,
+        "alt": "写真"
+      }
+    }
+  }
+]

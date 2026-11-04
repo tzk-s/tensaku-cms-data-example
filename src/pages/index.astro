@@ -1,0 +1,36 @@
+---
+/**
+ * 導入事例の一覧（/）
+ * ビルド時に検証済みのデータで静的 HTML を作る。CMS の文字列はすべて {} で出力する（自動でエスケープされる）。
+ */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { casePath, formatDate, toDateAttr } from '../cms/display';
+
+//  コレクションの読み出し順は保証されないので、ここで新しい順に並べ直す
+const cases = (await getCollection('cases')).map(entry => entry.data).sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base title='導入事例'>
+  <h1>導入事例</h1>
+  {
+    cases.length > 0 ? (
+      <ul class='case-list' role='list'>
+        {cases.map(item => (
+          <li class='case-card'>
+            {item.industry && <p class='case-card__tag'>{item.industry.name}</p>}
+            <h2 class='case-card__title'>
+              <a href={casePath(item.slug)}>{item.title}</a>
+            </h2>
+            <p class='case-card__meta'>
+              {item.company}
+              <time datetime={toDateAttr(item.date)}>{formatDate(item.date)}</time>
+            </p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>現在公開している導入事例はありません。</p>
+    )
+  }
+</Base>

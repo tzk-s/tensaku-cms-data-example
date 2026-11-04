@@ -1,0 +1,88 @@
+---
+/**
+ * 導入事例の詳細（/cases/{スラッグ}/）
+ * 事例 1 件につき 1 ページを静的に書き出す。本文は空行で段落に分けて <p> にする（set:html は使わない）。
+ * 画像は URL の検証までを扱い、このサンプルでは表示しない。
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate, toDateAttr, toParagraphs } from '../../cms/display';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map(entry => ({ params: { slug: entry.data.slug }, props: { item: entry.data } }));
+}
+
+interface Props {
+  item: CollectionEntry<'cases'>['data'];
+}
+
+const { item } = Astro.props;
+
+const sections = [
+  { id: 'challenge', title: '導入前の課題', text: item.challenge },
+  { id: 'solution', title: '導入・活用の方法', text: item.solution },
+  { id: 'result', title: '導入後の効果', text: item.result },
+];
+---
+
+<Base title={item.title}>
+  <article class='case' aria-labelledby='case-title'>
+    <p><a href='/'>導入事例の一覧へ</a></p>
+    <header>
+      {item.industry && <p class='case-card__tag'>{item.industry.name}</p>}
+      <h1 id='case-title'>{item.title}</h1>
+      <dl class='case__profile'>
+        <dt>企業名</dt>
+        <dd>{item.company}</dd>
+        {
+          item.companySize && (
+            <>
+              <dt>規模</dt>
+              <dd>{item.companySize}</dd>
+            </>
+          )
+        }
+        <dt>お話を伺った方</dt>
+        <dd>{item.person}</dd>
+        <dt>公開日</dt>
+        <dd><time datetime={toDateAttr(item.date)}>{formatDate(item.date)}</time></dd>
+      </dl>
+    </header>
+
+    {
+      item.metrics.length > 0 && (
+        <section aria-labelledby='metrics-title'>
+          <h2 id='metrics-title'>数値で見る効果</h2>
+          <dl class='case__metrics'>
+            {item.metrics.map(metric => (
+              <div>
+                <dt>{metric.label}</dt>
+                <dd>{metric.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )
+    }
+
+    {
+      sections.map(section => (
+        <section aria-labelledby={`${section.id}-title`}>
+          <h2 id={`${section.id}-title`}>{section.title}</h2>
+          {toParagraphs(section.text).map(paragraph => (
+            <p>{paragraph}</p>
+          ))}
+        </section>
+      ))
+    }
+
+    <section aria-labelledby='voice-title'>
+      <h2 id='voice-title'>担当者の声</h2>
+      <p class='case__voice-title'>
+        {item.voiceTitle.split('\n').map((line, index) => (index > 0 ? [<br />, line] : line))}
+      </p>
+      <p>{item.voiceText}</p>
+    </section>
+  </article>
+</Base>
