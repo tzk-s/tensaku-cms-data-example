@@ -1,0 +1,4 @@
+//  各層から `@use '../global' as *;` で読む（値・関数・mixin だけで、CSS は出力しない）
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';

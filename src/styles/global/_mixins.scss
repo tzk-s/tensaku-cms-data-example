@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+//  指定した幅以上（モバイルファースト）
+@mixin mq($width: $breakpoint-md) {
+  @media (min-width: #{$width}px) {
+    @content;
+  }
+}

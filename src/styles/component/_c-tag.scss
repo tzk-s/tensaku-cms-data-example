@@ -1,0 +1,11 @@
+@use '../global' as *;
+
+//  業種などの小さなラベル
+.c-tag {
+  display: inline-block;
+  margin: 0 0 rem(4);
+  padding: 0 rem(8);
+  font-size: rem(13);
+  background: $color-tint;
+  border-radius: rem(4);
+}

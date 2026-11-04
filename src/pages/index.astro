@@ -15,14 +15,14 @@ const cases = (await getCollection('cases')).map(entry => entry.data).sort((a, b
   <h1>導入事例</h1>
   {
     cases.length > 0 ? (
-      <ul class='case-list' role='list'>
+      <ul class='p-case-list' role='list'>
         {cases.map(item => (
-          <li class='case-card'>
-            {item.industry && <p class='case-card__tag'>{item.industry.name}</p>}
-            <h2 class='case-card__title'>
+          <li class='p-case-list__item'>
+            {item.industry && <p class='c-tag'>{item.industry.name}</p>}
+            <h2 class='p-case-list__title'>
               <a href={casePath(item.slug)}>{item.title}</a>
             </h2>
-            <p class='case-card__meta'>
+            <p class='p-case-list__meta'>
               {item.company}
               <time datetime={toDateAttr(item.date)}>{formatDate(item.date)}</time>
             </p>

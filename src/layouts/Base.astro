@@ -1,6 +1,6 @@
 ---
 /** 確認用の最小レイアウト（元サイトのデザインではない） */
-import '../styles/global.css';
+import '../styles/main.scss';
 
 interface Props {
   title: string;
@@ -18,10 +18,10 @@ const { title } = Astro.props;
     <title>{title} | 導入事例データのサンプル</title>
   </head>
   <body>
-    <header class='site-header'>
+    <header class='l-header'>
       <a href='/'>導入事例データのサンプル</a>
     </header>
-    <main class='container'>
+    <main class='l-container'>
       <slot />
     </main>
   </body>

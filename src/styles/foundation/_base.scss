@@ -1,0 +1,33 @@
+@use '../global' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+  color: $color-text;
+  background: $color-bg;
+}
+
+a {
+  color: $color-accent;
+}
+
+h1 {
+  font-size: rem(26);
+  line-height: 1.4;
+
+  @include mq {
+    font-size: rem(32);
+  }
+}
+
+h2 {
+  font-size: rem(20);
+  line-height: 1.5;
+}

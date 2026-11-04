@@ -1,0 +1,13 @@
+//  色・幅・ブレークポイント（このサンプル用の値）
+$color-text: #222;
+$color-muted: #555;
+$color-border: #d6d6d6;
+$color-accent: #1a5fb4;
+$color-bg: #fff;
+$color-tint: #eef3fa;
+
+$content-width: 760;
+$gutter: 16;
+
+//  スマートフォンを基準にし、この幅以上で PC 向けの指定を足す
+$breakpoint-md: 768;

@@ -1,0 +1,34 @@
+@use '../global' as *;
+
+//  導入事例の一覧
+.p-case-list {
+  display: grid;
+  gap: rem(16);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include mq {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.p-case-list__item {
+  padding: rem(16);
+  border: 1px solid $color-border;
+  border-radius: rem(6);
+}
+
+.p-case-list__title {
+  margin: 0;
+  font-size: rem(18);
+}
+
+.p-case-list__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 rem(12);
+  margin: rem(4) 0 0;
+  font-size: rem(14);
+  color: $color-muted;
+}

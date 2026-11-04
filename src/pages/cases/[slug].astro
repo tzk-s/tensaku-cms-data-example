@@ -27,12 +27,12 @@ const sections = [
 ---
 
 <Base title={item.title}>
-  <article class='case' aria-labelledby='case-title'>
+  <article class='p-case' aria-labelledby='case-title'>
     <p><a href='/'>導入事例の一覧へ</a></p>
     <header>
-      {item.industry && <p class='case-card__tag'>{item.industry.name}</p>}
+      {item.industry && <p class='c-tag'>{item.industry.name}</p>}
       <h1 id='case-title'>{item.title}</h1>
-      <dl class='case__profile'>
+      <dl class='p-case__profile'>
         <dt>企業名</dt>
         <dd>{item.company}</dd>
         {
@@ -54,9 +54,9 @@ const sections = [
       item.metrics.length > 0 && (
         <section aria-labelledby='metrics-title'>
           <h2 id='metrics-title'>数値で見る効果</h2>
-          <dl class='case__metrics'>
+          <dl class='p-case__metrics'>
             {item.metrics.map(metric => (
-              <div>
+              <div class='p-case__metric'>
                 <dt>{metric.label}</dt>
                 <dd>{metric.value}</dd>
               </div>
@@ -79,7 +79,7 @@ const sections = [
 
     <section aria-labelledby='voice-title'>
       <h2 id='voice-title'>担当者の声</h2>
-      <p class='case__voice-title'>
+      <p class='p-case__voice-title'>
         {item.voiceTitle.split('\n').map((line, index) => (index > 0 ? [<br />, line] : line))}
       </p>
       <p>{item.voiceText}</p>

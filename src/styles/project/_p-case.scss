@@ -1,0 +1,45 @@
+@use '../global' as *;
+
+//  導入事例の詳細
+.p-case__profile {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: rem(4) rem(16);
+  font-size: rem(15);
+
+  dt {
+    color: $color-muted;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.p-case__metrics {
+  display: grid;
+  gap: rem(8);
+
+  @include mq {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.p-case__metric {
+  padding: rem(8) rem(12);
+  border-left: rem(4) solid $color-accent;
+  background: $color-tint;
+
+  dt {
+    color: $color-muted;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+.p-case__voice-title {
+  font-weight: 700;
+}

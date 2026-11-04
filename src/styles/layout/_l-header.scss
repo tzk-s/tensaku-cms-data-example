@@ -1,0 +1,6 @@
+@use '../global' as *;
+
+.l-header {
+  padding: rem(12) rem($gutter);
+  border-bottom: 1px solid $color-border;
+}

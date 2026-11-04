@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+//  px の値を rem にする（rem(14) → 0.875rem）。ブラウザの文字サイズ設定に合わせて余白も拡大させるため
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}

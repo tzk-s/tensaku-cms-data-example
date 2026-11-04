@@ -1,0 +1,7 @@
+@use '../global' as *;
+
+.l-container {
+  max-width: rem($content-width + $gutter * 2);
+  margin-inline: auto;
+  padding: rem(24) rem($gutter) rem(64);
+}

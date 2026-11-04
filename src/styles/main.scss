@@ -1,0 +1,8 @@
+//  確認用の簡素なスタイル（元サイトのデザインではない）
+//  FLOCSS の層の順に読み込む：Foundation → Layout → Component → Project
+@use 'foundation/base';
+@use 'layout/l-header';
+@use 'layout/l-container';
+@use 'component/c-tag';
+@use 'project/p-case-list';
+@use 'project/p-case';
