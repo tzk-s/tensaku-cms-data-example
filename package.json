@@ -1,0 +1,27 @@
+{
+  "name": "tensaku-cms-data-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ヘッドレスWordPressの導入事例データを検証し、Astroの静的ページへ渡す公開用サンプル",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "build:invalid": "CASES_FILE=tests/fixtures/invalid-cases.json astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": "^22.23.4 || ^24.22.1 || >=26.12.1"
+  },
+  "dependencies": {
+    "astro": "^7.4.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^24.19.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
+  }
+}

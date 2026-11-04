@@ -1,0 +1,113 @@
+[
+  {
+    "id": 101,
+    "slug": "sample-design-office",
+    "title": { "rendered": "紙の赤字をやめ、修正の往復が半分に" },
+    "date": "2026-09-24T10:00:00",
+    "modified": "2026-09-25T09:30:00",
+    "tensaku": {
+      "company": "株式会社サンプルデザイン",
+      "companySize": "従業員 20名",
+      "person": "制作部 ディレクター",
+      "voiceTitle": "修正の往復が\n半分になりました",
+      "voiceText": "画面上で直接コメントできるようになり、どこを直すのかを確認する連絡がほとんど無くなりました。",
+      "challenge": "デザインを PDF に書き出し、赤字を書き込んでメールで送り返していました。\n\n版が増えるたびに、どれが最新かを確認する手間がかかっていました。",
+      "solution": "デザインを取り込み、そのまま画面上でコメントする運用に切り替えました。",
+      "result": "修正の往復は 1 案件あたり 6 回から 3 回になりました。\n\nPDF の書き出しと赤字の転記が無くなりました。",
+      "showOnTop": true,
+      "industry": { "slug": "design", "name": "デザイン会社" },
+      "metrics": [
+        { "label": "修正の往復", "value": "6回 → 3回" },
+        { "label": "確認用 PDF の作成", "value": "毎回 → 不要" }
+      ],
+      "image": {
+        "url": "https://cms.example.com/wp-content/uploads/2026/09/case-101.jpg",
+        "width": 1200,
+        "height": 675,
+        "alt": "打ち合わせをする 2 人"
+      }
+    }
+  },
+  {
+    "id": 102,
+    "slug": "example-ad-agency",
+    "title": { "rendered": "指示の行き違いが減り、確認が 1 画面で完結 &#8211; 広告制作の事例" },
+    "date": "2026-09-17T10:00:00",
+    "modified": "2026-09-17T10:00:00",
+    "tensaku": {
+      "company": "エグザンプル広告 &amp; パートナーズ",
+      "companySize": "従業員 120名",
+      "person": "制作局 アートディレクター",
+      "voiceTitle": "指示の意図が\n伝わりやすく",
+      "voiceText": "文章だけでは伝わりにくい細かな指示も、デザインに直接書き込めるので一目で伝わります。",
+      "challenge": "修正指示がメールの文章で届き、解釈が担当者ごとにばらついていました。",
+      "solution": "クライアントにもゲストとして参加してもらい、修正したい箇所を画面上で直接指してもらうようにしました。",
+      "result": "解釈違いによる再修正は月 10 件から 2 件になりました。",
+      "showOnTop": true,
+      "industry": { "slug": "advertising", "name": "広告代理店" },
+      "metrics": [{ "label": "解釈違いによる再修正", "value": "月10件 → 月2件" }],
+      "image": {
+        "url": "https://cms.example.com/wp-content/uploads/2026/09/case-102.jpg",
+        "width": 1200,
+        "height": 675,
+        "alt": "資料を指しながら説明する担当者"
+      }
+    }
+  },
+  {
+    "id": 103,
+    "slug": "demo-app-studio",
+    "title": { "rendered": "レビューの経緯が残り、引き継ぎが 3 日に" },
+    "date": "2026-10-01T10:00:00",
+    "modified": "2026-10-02T15:00:00",
+    "tensaku": {
+      "company": "デモアプリ工房",
+      "companySize": "",
+      "person": "開発チーム エンジニア",
+      "voiceTitle": "修正の経緯を\n誰でも追えるように",
+      "voiceText": "画面ごとに、誰がいつ修正を依頼したかが残るので、途中から参加したメンバーもすぐに把握できます。",
+      "challenge": "画面デザインへの指摘がチャットや口頭に散らばり、仕様の経緯を後から追えませんでした。",
+      "solution": "画面デザインのレビューを 1 か所に集め、依頼と対応の履歴を画面ごとに残すようにしました。",
+      "result": "新しいメンバーへの引き継ぎは 2 週間から 3 日になりました。",
+      "showOnTop": false,
+      "industry": null,
+      "metrics": [],
+      "image": {
+        "url": "https://cms.example.com/wp-content/uploads/2026/10/case-103.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "ノートパソコンで作業するエンジニア"
+      }
+    }
+  },
+  {
+    "id": 104,
+    "slug": "test-web-production",
+    "title": { "rendered": "&#8220;どこを直すか&#8221; の確認が不要に" },
+    "date": "2026-08-28T10:00:00",
+    "modified": "2026-08-28T10:00:00",
+    "tensaku": {
+      "company": "株式会社テストWeb制作",
+      "companySize": "従業員 8名",
+      "person": "代表 Webディレクター",
+      "voiceTitle": "少人数でも\n確認が回るように",
+      "voiceText": "コメントごとに担当者を決められるので、少人数でも誰が何を直すのかで迷わなくなりました。",
+      "challenge": "修正の担当者を毎回口頭で決めており、対応漏れが起きることがありました。",
+      "solution": "コメントごとに担当者を割り当て、対応が終わったら完了にする運用にしました。",
+      "result": "対応漏れによる再連絡は、ほぼ無くなりました。",
+      "showOnTop": false,
+      "industry": { "slug": "web-production", "name": "Web制作会社" },
+      "metrics": [
+        { "label": "対応漏れの再連絡", "value": "月5件 → 月0件" },
+        { "label": "担当者決めの打ち合わせ", "value": "毎週 → 不要" },
+        { "label": "1 案件の確認日数", "value": "4日 → 2日" }
+      ],
+      "image": {
+        "url": "https://cms.example.com/wp-content/uploads/2026/08/case-104.jpg",
+        "width": 1200,
+        "height": 675,
+        "alt": "画面を見ながら話し合う 3 人"
+      }
+    }
+  }
+]
