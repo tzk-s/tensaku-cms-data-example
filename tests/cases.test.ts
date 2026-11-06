@@ -78,6 +78,24 @@ describe('normalizeWpCase：不正なデータ', () => {
     );
   });
 
+  it('タグや実体参照だけで、変換すると空になる必須項目も止める', () => {
+    expect(() => normalizeWpCase(wpCase({}, { company: '<b></b>' }))).toThrow(/tensaku\.company: 企業名が空です/);
+    expect(() => normalizeWpCase(wpCase({}, { person: '&nbsp;' }))).toThrow(/tensaku\.person: お話を伺った方が空です/);
+    expect(() => normalizeWpCase(wpCase({ title: { rendered: '<p> </p>' } }))).toThrow(/title\.rendered: 見出しが空です/);
+  });
+
+  it('公開日・更新日が日時の形でなければ止める（空・日付だけ・タイムゾーン付き）', () => {
+    expect(() => normalizeWpCase(wpCase({ date: '' }))).toThrow(/date: 公開日は/);
+    expect(() => normalizeWpCase(wpCase({ date: '2026-09-24' }))).toThrow(/date: 公開日は/);
+    expect(() => normalizeWpCase(wpCase({ modified: '2026-09-25T10:00:00Z' }))).toThrow(/modified: 更新日は/);
+  });
+
+  it('実在しない日時は止める', () => {
+    expect(() => normalizeWpCase(wpCase({ date: '2026-02-30T10:00:00' }))).toThrow(/date: 公開日は/);
+    expect(() => normalizeWpCase(wpCase({ modified: '2026-09-25T24:00:00' }))).toThrow(/modified: 更新日は/);
+    expect(normalizeWpCase(wpCase({ date: '2028-02-29T00:00:00' })).date).toBe('2028-02-29T00:00:00');
+  });
+
   it('必須項目のキーが無ければ止める', () => {
     const raw = wpCase();
     delete (raw.tensaku as Record<string, unknown>).person;
@@ -112,9 +130,9 @@ describe('normalizeWpCase：不正なデータ', () => {
     );
   });
 
-  it('URL に使えないスラッグ（日本語をエンコードしたものなど）は止める', () => {
-    expect(() => normalizeWpCase(wpCase({ slug: '%e4%ba%8b%e4%be%8b' }))).toThrow(/スラッグは半角英数字/);
-    expect(() => normalizeWpCase(wpCase({ slug: 'Sample_Case' }))).toThrow(/スラッグは半角英数字/);
+  it('URL の決まりに合わないスラッグ（日本語をエンコードしたもの・大文字など）は止める', () => {
+    expect(() => normalizeWpCase(wpCase({ slug: '%e4%ba%8b%e4%be%8b' }))).toThrow(/スラッグは半角英小文字/);
+    expect(() => normalizeWpCase(wpCase({ slug: 'Sample_Case' }))).toThrow(/スラッグは半角英小文字/);
   });
 
   it('オブジェクトでない値は、名前を「(不明)」として止める', () => {

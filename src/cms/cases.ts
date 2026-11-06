@@ -12,7 +12,7 @@
  *   ビルドが失敗したときに前回の公開内容が残るかどうかは配信環境の仕組みによる（このサンプルには含まない）。
  */
 import { z } from 'astro/zod';
-import { decodeWpText, describeItem, parseOrThrow, requiredText, slugText } from './text';
+import { decodeWpText, describeItem, parseOrThrow, requiredText, slugText, wpDateText } from './text';
 
 const metricSchema = z.object({
   label: requiredText('数値の項目名'),
@@ -27,8 +27,8 @@ export const wpCaseSchema = z.object({
   id: z.number().int(),
   slug: slugText,
   title: z.object({ rendered: requiredText('見出し') }),
-  date: z.string(),
-  modified: z.string(),
+  date: wpDateText('公開日'),
+  modified: wpDateText('更新日'),
   tensaku: z.object({
     company: requiredText('企業名'),
     companySize: z.string(),
@@ -103,7 +103,7 @@ export function normalizeWpCase(raw: unknown): CaseRecord {
   };
 }
 
-/** 新しい順に並べ、スラッグの重複を検出する（重複すると詳細ページの URL がぶつかる） */
+/** 新しい順に並べ、スラッグの重複を検出する（重複すると詳細ページの URL がぶつかる）。日時は同じ形にそろえてあるので文字列で比べられる */
 export function sortAndCheck(records: CaseRecord[]): CaseRecord[] {
   const seen = new Set<string>();
   for (const record of records) {
